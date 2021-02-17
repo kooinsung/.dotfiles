@@ -13,6 +13,7 @@
     mg = merge
     ci = commit -m
     st = status
+    bc = branch
     rs = restore --staged
     rbc = rebase --continue
     rba = rebase --abort
@@ -119,8 +120,8 @@
             git branch-list | fzf --preview \"git l {2} | head -n $_height\" | awk '{print $2}'; \
         }; f"
     bcs = "!git branch-select"
-    ch = "!# Branch tools. Same with bb.;\n\
-        git bb $1"
+;    ch = "!# Branch tools. Same with bb.;\n\
+;        git bb $1"
     alias-stage = "!#----------------------------------------------------------;\n\
         git alias | egrep '(add|diff|stage)' -i"
     a = "!# Select files and Add them.;\n\
