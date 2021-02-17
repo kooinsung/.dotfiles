@@ -10,7 +10,6 @@
     pl = pull
     mg = merge
     ci = commit
-    st = status
 
     alias-log = "!#----------------------------------------------------------;\n\
         git alias | egrep 'log|commit-'"
