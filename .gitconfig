@@ -1,20 +1,21 @@
-;[user]
-;	name = steve
-;	email = steve@triple-corp.com
+[user]
+	name = steve
+	email = steve@triple-corp.com
 [alias]
     alias-basic = "!#----------------------------------------------------------;\n\
         git alias | head -7"
     co = checkout
-    sw = switch
-    swc = switch -c
+    sc = switch
+    scb = switch -c
     ps = push
-    fps = push -f orgin
+    fps = push -f
     pl = pull
     mg = merge
     ci = commit -m
     st = status
     bc = branch
     rs = restore --staged
+    rb = rebase
     rbc = rebase --continue
     rba = rebase --abort
     rbs = rebase --skip
