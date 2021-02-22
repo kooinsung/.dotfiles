@@ -1,6 +1,3 @@
-[user]
-	name = steve
-	email = steve@triple-corp.com
 [alias]
     alias-basic = "!#----------------------------------------------------------;\n\
         git alias | head -7"
@@ -11,7 +8,8 @@
     fps = push -f
     pl = pull
     mg = merge
-    ci = commit -m
+    cm = commit
+    cmm = commit -m
     st = status
     bc = branch
     rs = restore --staged
