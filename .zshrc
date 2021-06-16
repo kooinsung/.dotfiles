@@ -68,9 +68,19 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+git
+osx
+fzf
+autojump
+zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
+source /Users/steve/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source alias-tips/alias-tips.plugin.zsh
+source ~/.bash_aliases
 
 # User configuration
 
@@ -86,6 +96,8 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
+export EDITOR=/usr/local/bin/nvim
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -97,12 +109,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ozr="open ~/.zshrc"
+alias vim="nvim"
+alias vi="nvim"
+alias vdiff="nvim -d"
 
-plugins=(autojump)
-plugins=(autojump)
-source /Users/steve/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
