@@ -5,4 +5,12 @@
 	autocrlf = input
 	pager = git-split-diffs --color | less -RFX
 [credential]
-	helper = osxkeychain
+	helper = o
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
+[marge]
+	conflictstyle = diff3

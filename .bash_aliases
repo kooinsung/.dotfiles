@@ -87,6 +87,7 @@ alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbs='git rebase --skip'
 alias grbm='git rebase master'
+alias grs='git restore --staged'
 alias gcm='git commit'
 alias gcmm='git commit -m'
 alias gcmv='git commit -v'
@@ -107,7 +108,7 @@ alias gcoa='git checkout .'
 alias gcob='git checkout -b'
 alias gsw='git switch'
 alias gswn='git switch -c'
-alias gl='git log'
+# alias gl='git log'
 alias glp='git log -p'
 alias gls='git log --oneline'
 alias glv='git log --oneline --graph'
@@ -116,8 +117,10 @@ alias gds='git diff --staged'
 alias gtagl="git tag -l"
 alias gtagd="git tag -d"
 
+# fzf
 alias gb="fzf-git-branch"
 alias gco="fzf-git-checkout"
+alias gl="fzf-git-log"
 
 function gshn() {
   ([ -z "$1" ] || [ $(($1)) -lt 0 ]) && echo 'Invalid integer!' && return
@@ -223,4 +226,21 @@ function fzf-git-checkout() {
     else
         git checkout $branch;
     fi
+}
+
+# Filter commit logs. The diff is shown on the preview window.
+function fzf-git-log() { # fshow - git commit browser
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    _gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
+    _viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always %'"
+    git log --graph --color=always \
+	--format="%C(auto)%h%d [%an] %s %C(black)%C(bold)%cr" "$@" |
+    fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+	--preview="$_viewGitLogLine" \
+	--bind "ctrl-m:execute:
+		(grep -o '[a-f0-9]\{7\}' | head -1 |
+		xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+		{}
+FZF-EOF"
 }
