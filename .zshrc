@@ -76,11 +76,11 @@ autojump
 zsh-syntax-highlighting
 )
 
+
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# If you receive "highlighters directory not found" error message,
-# you may need to add the following to your .zshenv:
-# export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source alias-tips/alias-tips.plugin.zsh
 source ~/.bash_aliases
