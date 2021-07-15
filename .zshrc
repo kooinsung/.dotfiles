@@ -73,7 +73,6 @@ git
 osx
 fzf
 autojump
-zsh-syntax-highlighting
 )
 
 
